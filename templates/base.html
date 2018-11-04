@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+
+        <style>
+                 label {display: inline-block; width: 120px;}
+                .error_message { color: red; }
+        </style>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <div>
+            <a href='/blog'>Main Blog</a>
+            <a href='/newpost'>Add an Entry</a>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>
