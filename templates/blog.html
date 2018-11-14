@@ -10,11 +10,19 @@
         {% elif posts|length == 1 %}
             <h2>{{posts[0].title}}</h2>
             <p>{{posts[0].content}}</p>
+            <div>
+                Author: {{post[0].poster_id}}
+                Posted On: {{post[0].date_of_pub}}
+            </div>
         {% else %}
             <ul>
                 {% for post in posts %}
                 <h2><a href='./blog?id={{post.id}}'>{{post.title}}</a></h2>
                 <p>{{post.content}}</p>
+                <div>
+                    Author: {{post.poster_id}}
+                    Posted On: {{post.date_of_pub}}
+                </div>
                     
                 {% endfor %}
             </ul>

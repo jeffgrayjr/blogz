@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>Signup for a Blogz Account</h1>
+        <form action="/signup" method="post">
+            <label for="email">Email</label>
+                <input id="email" name="email" type="text" value='{{email}}'' />
+                
+            <br><br>
+            <label for="password">Password</label>
+                <input id="password" name="password" type="password" value='{{password}}' />
+                
+            <br><br>          
+            <label for="verify">Verify Password</label>
+                <input id="verify" name="verify" type="password" value='{{verify}}'/>
+                
+            <br><br>
+            <input type="submit" />
+        </form>
+{% endblock %}

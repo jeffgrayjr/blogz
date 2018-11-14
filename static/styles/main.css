@@ -22,10 +22,11 @@
      color: black;
  }
 
- a:hover {
-     font-size: 1.2em;
- }
  form {
      width: 50%;
      margin: 0 0 0 40%;
  }
+
+ div a:link {
+     color: red;
+}
