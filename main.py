@@ -115,12 +115,16 @@ def logout():
 @app.route('/blog', methods=['POST', 'GET'])
 def display_all():
 
+    posts = Post.query.join(User, Post.poster_id==User.id).add_columns(Post.id, Post.title, Post.content, Post.date_of_pub,User.email, User.id)
+
     if request.args:
-        post_id = request.args.get('id')
-        single_post = Post.query.filter_by(id = post_id).first()
-        posts = [single_post]
-    else:
-        posts = Post.query.all()
+        if request.args.get('id'):
+            post_id = request.args.get('id')
+            #posts = posts.query.filter_by(id = post_id).first()
+            posts = posts.filter(Post.id == post_id)
+        elif request.args.get('user'):
+            post_owner = request.args.get('user')
+            posts = posts.filter(Post.poster_id == post_owner)
     
     return render_template('blog.html', title="Build-A-Blog!", posts=posts)
 
